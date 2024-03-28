@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --scroll-thumb-color: #8d8d8d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+  ::-webkit-scrollbar-track {
+    /*border-radius: 10px;*/
+    background: #000000;
+  }
+}
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}   */
+
+input {
+  outline: none;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Scroll bar custom styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+
+@media (max-width: 480px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 4px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  /*border-radius: 10px;*/
+  background: #f4f4f4;
+  border: 1px solid white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-color);
+}
+
+.smaller-scrollbar::-webkit-scrollbar {
+  width: 7px;
+  height: 0px;
+  @apply absolute;
+}
+
+.smaller-scrollbar::-webkit-scrollbar-track {
+  @apply w-7 border border-none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
