@@ -61,7 +61,9 @@ const InputField = (
             }
           )}
         >
-          {Icon && <Icon />}
+          <div className="dark:text-dark_secondary_text">
+            {Icon && <Icon />}
+          </div>
           <input
             {...props}
             name={id}
@@ -79,9 +81,9 @@ const InputField = (
           />
           <button
             onClick={clearInput}
-            className="text-grey_icon/60 dark:text-dark_primary_text/60"
+            className="text-grey_icon/60 dark:text-dark_primary_text/60 flex items-center justify-center"
           >
-            <Close />
+            <Close sx={{ fontSize: 18 }} />
           </button>
         </div>
       </section>

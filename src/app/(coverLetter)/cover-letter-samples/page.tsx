@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>cover letter</div>
+    <div>page</div>
   )
 }
 

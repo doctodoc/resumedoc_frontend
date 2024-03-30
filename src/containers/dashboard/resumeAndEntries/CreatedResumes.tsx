@@ -2,7 +2,7 @@ import CurvedButton from "@/components/buttons/CurvedButton";
 import { Add } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import React from "react";
-import ResumeClip from "../../selectResume/ResumeClip";
+import ResumeClip from "../../resume/selectResume/ResumeClip";
 
 type Props = {
   resumeList: any;
@@ -46,17 +46,15 @@ const CreatedResumes = ({ resumeList }: Props) => {
           </section>
 
           <section
-            className={
-              "flex-shrink flex relative ml-10 bg-red-500 z-[2] bg-inherit"
-            }
+            className={"flex-shrink flex relative ml-10 z-[2] bg-inherit"}
           >
-            <button
+            <CurvedButton
               className="flex flex-col gap-3 justify-center w-fit aspect-[1/2] ml-0 p-3 flex-1 items-center bg-light_gray_widget dark:bg-secondary_dark text-primary"
               onClick={navToBuildResume}
             >
               <p className="font-medium text-[18px]">New Resume</p>
-              <Add className="w-full" sx={{ fontSize: 50 }} />
-            </button>
+              <Add className="w-full" sx={{ fontSize: 40 }} />
+            </CurvedButton>
           </section>
         </div>
       </main>

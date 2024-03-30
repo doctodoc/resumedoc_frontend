@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import TopNav from "../navbar/TopNav";
+import TopNav from "../navbar/topNav/TopNav";
 import StoreProvider from "@/app/StoreProvider";
 import Footer from "../footer/Footer";
 import { AuthRegType } from "@/shared/types/authTypes";
@@ -10,7 +10,7 @@ import AuthModalContainer from "../auth/modals/AuthModalContainer";
 import AuthModal from "../auth/modals/AuthModal";
 import useThemeHook from "@/shared/hooks/useThemeHook";
 import { navLinks } from "@/data/linksData/navLinksData";
-import DropDownMenu from "../dropDowns/DropDownMenu";
+import DropDownMenu from "../navbar/DropDownNav";
 import useGetHeight from "@/lib/hooks/elements/useGetHeight";
 
 const MainLayout = ({
@@ -41,7 +41,6 @@ const MainLayout = ({
 
   return (
     <div className="flex flex-col dark:bg-primary_dark min-h-screen">
-      
       {/* MODALS */}
       <AuthModal isOpen={isAuthModalOpen} close={closeAuthModal} />
 

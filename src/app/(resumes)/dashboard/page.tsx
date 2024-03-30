@@ -1,23 +1,23 @@
 "use client";
 
 import { universalPaddingX, universalPaddingY } from "@/assets/css/tailwindcss";
-import CreatedResumes from "@/containers/resume/dashboard/resumeAndEntries/CreatedResumes";
-import SavedBios from "@/containers/resume/dashboard/coverLetter/CoverLetter";
-import Subscriptions from "@/containers/resume/dashboard/subscription/Subscriptions";
+import CreatedResumes from "@/containers/dashboard/resumeAndEntries/CreatedResumes";
+import CoverLetter from "@/containers/dashboard/coverLetter/CoverLetterList";
+import Subscriptions from "@/containers/dashboard/subscription/Subscriptions";
 import React from "react";
 
 const Dashboard = () => {
   return (
     <div
-      className={`${universalPaddingX} ${universalPaddingY} flex flex-col items-center w-full dark:text-dark_primary_text`}
+      className={`${universalPaddingX} ${universalPaddingY} flex flex-col gap-6 items-center w-full dark:text-dark_primary_text`}
     >
-      <main className="max-w-[1400px] w-full">
+      <main className="max-w-[1400px] w-full flex flex-col gap-10">
         <section>
           <CreatedResumes resumeList={[]} />
         </section>
 
         <section>
-          <SavedBios />
+          <CoverLetter />
         </section>
 
         <section>

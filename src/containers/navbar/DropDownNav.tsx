@@ -14,7 +14,7 @@ import { NavLinksPropsType } from "@/data/linksData/navLinksData";
 // import DashboardIcon from "../../assets/comps/DashboardIcon";
 // import SettingsIcon from "../../assets/comps/SettingsIcon";
 
-type DropDownMenuPropType = {
+type DropDownNavPropType = {
   isOpen?: boolean;
   navLinks: NavLinksPropsType[];
   handleNav: (link: string) => void;
@@ -22,13 +22,13 @@ type DropDownMenuPropType = {
   handleClose: () => void;
 };
 
-const DropDownMenu = ({
+const DropDownNav = ({
   isOpen,
   navLinks,
   handleNav,
   currentPath,
   handleClose,
-}: DropDownMenuPropType) => {
+}: DropDownNavPropType) => {
   return (
     <div
       className={`md:hidden  fixed top-0 h-screen z-drop_down_menu bg-light_bg dark:bg-primary_dark flex flex-col gap-4 md:gap-1 items-start overflow-y-auto scroll-m-0 md:overflow-none
@@ -165,4 +165,4 @@ const DropDownMenu = ({
   );
 };
 
-export default DropDownMenu;
+export default DropDownNav;
