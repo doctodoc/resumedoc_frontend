@@ -24,7 +24,7 @@ const MenuDisclosure = ({
       {({ open }) => (
         <>
           <Disclosure.Button
-            className={`flex w-full justify-between rounded-lg px-4 py-2 text-left text-sm focus:outline-none focus-visible:ring focus-visible:ring-opacity-75 bg-secondary_text/30 ${titleClassName}`}
+            className={`flex w-full justify-between rounded-lg px-4 py-2 text-left text-sm focus:outline-none focus-visible:ring focus-visible:ring-opacity-75 bg-secondary_text/20 ${titleClassName}`}
           >
             <TextWithIcon
               text={title}

@@ -45,13 +45,10 @@ const CreateCoverLetter = () => {
           <section className="w-full flex flex-col gap-3">
             <div className="flex gap-3 items-center">
               <p>Your Cover Letter Will Appear Here</p>
-              <CurvedButton
-                className="flex gap-3 items-center bg-primary text-white"
-                py={1}
-              >
+              <button className="flex gap-1 items-center text-primary">
                 <p>Edit Cover Letter</p>
-                <Edit />
-              </CurvedButton>
+                <Edit sx={{ fontSize: "1.2rem" }} />
+              </button>
             </div>
 
             <div className="min-w-[400px] w-full aspect-square bg-slate-600"></div>

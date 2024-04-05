@@ -1,10 +1,10 @@
 import React from "react";
-import CoverLetterSampleCard from "../coverLetterSamples/CoverLetterSampleCard";
+import CoverLetterSampleCard from "./CoverLetterSampleCard";
 
-const MyCoverLetters = () => {
+const CoverLetterSamples = () => {
   return (
     <div>
-      <main className="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-4 h-full">
+      <main className="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-4 h-full justify-center items-center">
         <CoverLetterSampleCard />
         <CoverLetterSampleCard />
         <CoverLetterSampleCard />
@@ -18,4 +18,4 @@ const MyCoverLetters = () => {
   );
 };
 
-export default MyCoverLetters;
+export default CoverLetterSamples;

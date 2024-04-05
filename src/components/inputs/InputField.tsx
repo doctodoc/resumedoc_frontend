@@ -23,7 +23,6 @@ const InputField = (
     iconPosition,
     containerClass,
     autoFocus,
-
     ...props
   }: InputFieldPropsType,
   ref?: React.LegacyRef<HTMLInputElement> | undefined

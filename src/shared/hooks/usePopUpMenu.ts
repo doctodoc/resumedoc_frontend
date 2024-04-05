@@ -8,7 +8,9 @@ const usePopUpMenu = () => {
     setPopUpState(false);
   };
 
-  const openPopUp = () => {};
+  const openPopUp = () => {
+    setPopUpState(true);
+  };
   const togglePopUp = () => {
     setPopUpState(!popUpState);
   };

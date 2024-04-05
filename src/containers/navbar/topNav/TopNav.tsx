@@ -91,7 +91,9 @@ const TopNav = ({
         <div className="hidden md:flex gap-4 items-center h-full text-sm xl:text-base">
           <DropMenuContainer
             title={"Resumes"}
-            handleMenu={toggleResumeMenu}
+            toggleMenu={toggleResumeMenu}
+            openMenu={openResumeMenu}
+            closeMenu={closeResumeMenu}
             isOpen={isResumeMenuOpen}
             dropDownRef={popUpResumeRef}
           >
@@ -119,23 +121,32 @@ const TopNav = ({
           </DropMenuContainer>
           <DropMenuContainer
             title={"Cover Letters"}
-            handleMenu={toggleCoverLetterMenu}
+            toggleMenu={toggleCoverLetterMenu}
+            openMenu={openCoverLetterMenu}
+            closeMenu={closeCoverLetterMenu}
             isOpen={isCoverLetterMenuOpen}
             dropDownRef={popUpCoverLetterRef}
           >
             {
               <div className={"flex flex-col gap-2"}>
                 <NavLink
+                  afterNav={closeCoverLetterMenu}
                   href={"/create-cover-letter"}
                   className="flex gap-2 items-center"
                 >
                   <p>{"New Cover Letter"}</p>
                   <Add sx={{ fontSize: 18 }} />
                 </NavLink>
-                <NavLink href={"/my-cover-letters"}>
+                <NavLink
+                  afterNav={closeCoverLetterMenu}
+                  href={"/my-cover-letters"}
+                >
                   <p>{"My Cover Letters"}</p>
                 </NavLink>
-                <NavLink href={"/cover-letter-samples"}>
+                <NavLink
+                  afterNav={closeCoverLetterMenu}
+                  href={"/cover-letter-samples"}
+                >
                   <p>{"Cover Letter Samples"}</p>
                 </NavLink>
               </div>
@@ -151,7 +162,10 @@ const TopNav = ({
           <Link href={"/cover-letter"}>
             <p>{"Cover Letter"}</p>
           </Link> */}
-          <Link href={"/blog"}>
+          <Link
+            href={"/blog"}
+            className="p-2 text-grey_icon dark:text-dark_secondary_text hover:bg-light_gray_widget dark:hover:bg-secondary_dark rounded-full"
+          >
             <p>{"Blog"}</p>
           </Link>
         </div>
@@ -181,7 +195,7 @@ const TopNav = ({
           {isAuth ? (
             <div className="h-full flex items-center relative py-3 md:py-4">
               <button
-                className={`flex gap-1 items-center p-1 text-grey_icon dark:text-dark_secondary_text hover:bg-light_gray_widget dark:hover:bg-secondary_dark rounded-full`}
+                className={`flex gap-1 items-center p-2 text-grey_icon dark:text-dark_secondary_text hover:bg-light_gray_widget dark:hover:bg-secondary_dark rounded-full`}
                 onClick={togglePersonalMenu}
               >
                 <Avatar sx={{ bgcolor: "#0DD354" }} />
