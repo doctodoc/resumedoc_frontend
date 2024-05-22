@@ -15,6 +15,8 @@ import GenerateResumeModal from "@/containers/modals/actionModals/GenerateResume
 import { useDisclosure } from "@/components/modal/useDisclosure";
 import SaveResumeBioModal from "@/containers/modals/actionModals/SaveResumeBioModal";
 import ClearResumeEntriesModal from "@/containers/modals/warningModals/ClearResumeEntriesModal";
+import { Form, Formik } from "formik";
+import ContactInfo from "../resumeSections/ContactInfo";
 
 const BuldResumeFormSection = () => {
   const {
@@ -98,30 +100,45 @@ const BuldResumeFormSection = () => {
         </button>
       </section>
 
-      <main className="flex flex-col gap-6">
-        <TitleCenteredSection title="Header" withLine>
-          <ResumeHeader />
-        </TitleCenteredSection>
+      <main>
+        <Formik
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            jobTitle: "",
+          }}
+          onSubmit={() => {}}
+        >
+          <Form className="flex flex-col gap-6 xl:gap-10">
+            <TitleCenteredSection title="Header" withLine>
+              <ResumeHeader />
+            </TitleCenteredSection>
 
-        <TitleCenteredSection title="Summary" withLine>
-          <ResumeSummary />
-        </TitleCenteredSection>
+            <TitleCenteredSection title="Contact Information" withLine>
+              <ContactInfo />
+            </TitleCenteredSection>
 
-        <TitleCenteredSection title="Experience" withLine>
-          <ResumeExperience />
-        </TitleCenteredSection>
+            <TitleCenteredSection title="Summary" withLine>
+              <ResumeSummary />
+            </TitleCenteredSection>
 
-        <TitleCenteredSection title="Education" withLine>
-          <ResumeEducation />
-        </TitleCenteredSection>
+            <TitleCenteredSection title="Experience" withLine>
+              <ResumeExperience />
+            </TitleCenteredSection>
 
-        <TitleCenteredSection title="Certificate" withLine>
-          <ResumeCert />
-        </TitleCenteredSection>
+            <TitleCenteredSection title="Education" withLine>
+              <ResumeEducation />
+            </TitleCenteredSection>
 
-        <TitleCenteredSection title="Awards" withLine>
-          <ResumeAwards />
-        </TitleCenteredSection>
+            <TitleCenteredSection title="Certificate" withLine>
+              <ResumeCert />
+            </TitleCenteredSection>
+
+            <TitleCenteredSection title="Awards" withLine>
+              <ResumeAwards />
+            </TitleCenteredSection>
+          </Form>
+        </Formik>
       </main>
 
       <section className="w-full flex gap-5 items-center justify-center mt-10">

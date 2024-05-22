@@ -1,16 +1,16 @@
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { MouseEventHandler, ReactElement } from "react";
+import { LegacyRef, MouseEventHandler, ReactElement } from "react";
 
 export interface InputFieldPropsType extends React.InputHTMLAttributes<HTMLInputElement>{
-    name?: string;
+    // name?: string;
     placeholder?: string;
     title?: string;
     className?: string;
     containerClass?: string;
     type?: string;
     id: string;
-    value: string | number;
+    value?: string | number;
     fieldName?: string;
     // error?: FormErrorType[] | null | string;
     handleChange?: (e?: any) => void;

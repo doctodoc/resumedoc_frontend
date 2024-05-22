@@ -13,7 +13,6 @@ const ResumeExperience = () => {
           {/* company */}
           <InputWithTag
             placeholder="Name of Company"
-            value={""}
             id="name_of_company_resume"
             isOutlined
             containerClass="flex-1"
@@ -23,7 +22,6 @@ const ResumeExperience = () => {
           {/* role */}
           <InputWithTag
             placeholder="Job Title"
-            value={""}
             id="name_of_job_title"
             isOutlined
             containerClass="flex-1"
@@ -35,7 +33,6 @@ const ResumeExperience = () => {
           {/* period */}
           <InputWithTag
             placeholder="Start Date"
-            value={""}
             id="start_date_resume"
             isOutlined
             title="Start Date"
@@ -43,7 +40,6 @@ const ResumeExperience = () => {
           />
           <InputWithTag
             placeholder="End Date"
-            value={""}
             id="end_date_resume"
             isOutlined
             title="End Date"

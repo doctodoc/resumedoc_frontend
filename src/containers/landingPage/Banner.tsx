@@ -1,8 +1,13 @@
 import CurvedButton from "@/components/buttons/CurvedButton";
 import { universalPaddingX, universalPaddingY } from "@/assets/css/tailwindcss";
 import React from "react";
+import { useRouter } from "next/navigation";
+import useCustomRouter from "@/shared/hooks/useCustomRouter";
+import { AppRoutes } from "@/routes/AppRoutes";
+
 
 const Banner = () => {
+  const {navigate} = useCustomRouter()  
   return (
     <div className={`flex flex-col gap-4 ${universalPaddingY} ${universalPaddingX}`}>
       <main>
@@ -20,7 +25,7 @@ const Banner = () => {
         <CurvedButton className="text-white bg-black dark:text-black dark:bg-white w-full sm:w-fit">
           Hire A Resume Expert
         </CurvedButton>
-        <CurvedButton className="text-white bg-primary w-full sm:w-fit">
+        <CurvedButton className="text-white bg-primary w-full sm:w-fit" onClick={()=>navigate(AppRoutes.resume.buildResume)}>
           Build My Resume Now
         </CurvedButton>
       </section>

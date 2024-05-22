@@ -23,6 +23,7 @@ const InputField = (
     iconPosition,
     containerClass,
     autoFocus,
+
     ...props
   }: InputFieldPropsType,
   ref?: React.LegacyRef<HTMLInputElement> | undefined
@@ -60,9 +61,7 @@ const InputField = (
             }
           )}
         >
-          <div className="dark:text-dark_secondary_text">
-            {Icon && <Icon />}
-          </div>
+          {Icon && <Icon />}
           <input
             {...props}
             name={id}
@@ -80,9 +79,9 @@ const InputField = (
           />
           <button
             onClick={clearInput}
-            className="text-grey_icon/60 dark:text-dark_primary_text/60 flex items-center justify-center"
+            className="text-grey_icon/60 dark:text-dark_primary_text/60"
           >
-            <Close sx={{ fontSize: 18 }} />
+            <Close />
           </button>
         </div>
       </section>

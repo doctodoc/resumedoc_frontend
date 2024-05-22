@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import PainPointArea from "./PainPointArea";
 import Banner from "./Banner";
@@ -16,7 +18,11 @@ const LandingPage = () => {
         <section></section>
       </header>
 
-      <main className={classNames(`flex flex-col gap-16 xl:gap-20 mt-[4rem] sm:mt-[5rem] md:mt-[8rem] `)}>
+      <main
+        className={classNames(
+          `flex flex-col gap-16 xl:gap-20 mt-[4rem] sm:mt-[5rem] md:mt-[8rem] `
+        )}
+      >
         <PainPointArea />
         <ResumeSamples />
         <Features />

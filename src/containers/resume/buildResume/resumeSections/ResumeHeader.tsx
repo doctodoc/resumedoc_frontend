@@ -1,8 +1,14 @@
 import InputField from "@/components/inputs/InputField";
 import InputWithTag from "@/components/inputs/InputWithTag";
+import { FieldHookConfig, useField } from "formik";
 import React from "react";
 
-const ResumeHeader = () => {
+interface Props {
+  handleChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const ResumeHeader = ({ handleChange }: Props) => {
+  
   return (
     <div className="flex flex-col gap-4">
       <section className="flex flex-col gap-3">
@@ -12,17 +18,17 @@ const ResumeHeader = () => {
         <div className="flex gap-6 w-full flex-wrap">
           <InputWithTag
             placeholder="First Name"
-            id="first_name_resume"
-            value={""}
+            id="firstName"
             containerClass="flex-1 min-w-[200px] "
             title="First Name"
+            name="firstName"
           />
           <InputWithTag
             placeholder="Last Name"
-            id="last_name_resume"
-            value={""}
+            id="lastName"
             containerClass="flex-1 min-w-[200px] "
             title="Last Name"
+            name="lastName"
           />
         </div>
       </section>
@@ -34,9 +40,10 @@ const ResumeHeader = () => {
         <div className="max-w-[500px]">
           <InputField
             placeholder="Enter role or position you are applying for"
-            id="resume_position"
-            value={""}
+            id="jobTitle"
             isOutlined
+            name="jobTitle"
+            
           />
         </div>
       </section>

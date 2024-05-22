@@ -25,13 +25,13 @@ const InputWithTag = ({
   const [isActive, setIsActive] = useState(false); //tracks input cursor to apply changes
 
   return (
-    <div className={` flex flex-col gap-2 md:gap-3 ${containerClass} bg-inherit`}>
+    <div className={` flex flex-col gap-2 md:gap-3 ${containerClass}`}>
       <section
-        className={`relative dark:transparent flex flex-col gap-2 border-[1.3px] border-solid border-input_border_grey dark:border-input_border_grey/60 py-2 bg-inherit`}
+        className={`relative dark:transparent flex flex-col gap-2 border-[1.3px] border-solid border-input_border_grey dark:border-input_border_grey/60 py-2 }`}
       >
         <div
           className={classNames(
-            `bg-inherit flex w-full justify-between items-center rounded-md ${
+            ` flex w-full justify-between items-center rounded-md ${
               iconPosition === "right" ? "flex-row-reverse" : ""
             }
           ${className} dark:transparent dark:border-none w-full  dark:placeholder:text-gray-500/[.5] placeholder:text-base
@@ -42,10 +42,9 @@ const InputWithTag = ({
             // }
           )}
         >
-          {/* Title tag */}
           {isActive && (
-            <div className="absolute top-0 bg-inherit -translate-y-[50%] left-2 ">
-              <p className="text-sm text-light_gray_bg bg-inherit">{title}</p>
+            <div className="absolute top-0 bg-transparent -translate-y-[50%] left-2">
+              <p className="text-sm text-light_gray_bg">{title}</p>
             </div>
           )}
 

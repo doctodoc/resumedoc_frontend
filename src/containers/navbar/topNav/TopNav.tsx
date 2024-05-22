@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import DropMenuContainer from "../../dropDowns/DropMenuContainer";
 import usePopUpMenu from "@/shared/hooks/usePopUpMenu";
 import NavLink from "@/components/buttons/NavLink";
+import { AppRoutes } from "@/routes/AppRoutes";
 
 type Props = {
   handleAuthModal: (type: AuthRegType) => void;
@@ -100,19 +101,19 @@ const TopNav = ({
             {
               <div className={"flex flex-col gap-2"}>
                 <NavLink
-                  href={"/build-resume"}
+                  href={AppRoutes.resume.buildResume}
                   className="flex gap-2 items-center"
                   afterNav={closeResumeMenu}
                 >
                   <p>{"New Resume"}</p>
                   <Add sx={{ fontSize: 18 }} />
                 </NavLink>
-                <NavLink afterNav={closeResumeMenu} href={"/my-resumes"}>
+                <NavLink afterNav={closeResumeMenu} href={AppRoutes.resume.myResumes}>
                   <p>{"My Resumes"}</p>
                 </NavLink>
                 <NavLink
                   afterNav={closeResumeMenu}
-                  href={"/select-resume-template"}
+                  href={AppRoutes.resume.resumeTemplates}
                 >
                   <p>{"Resume Templates"}</p>
                 </NavLink>
@@ -131,7 +132,7 @@ const TopNav = ({
               <div className={"flex flex-col gap-2"}>
                 <NavLink
                   afterNav={closeCoverLetterMenu}
-                  href={"/create-cover-letter"}
+                  href={AppRoutes.coverLetter.createCoverLetter}
                   className="flex gap-2 items-center"
                 >
                   <p>{"New Cover Letter"}</p>
@@ -139,13 +140,13 @@ const TopNav = ({
                 </NavLink>
                 <NavLink
                   afterNav={closeCoverLetterMenu}
-                  href={"/my-cover-letters"}
+                  href={AppRoutes.coverLetter.myCoverLetters}
                 >
                   <p>{"My Cover Letters"}</p>
                 </NavLink>
                 <NavLink
                   afterNav={closeCoverLetterMenu}
-                  href={"/cover-letter-samples"}
+                  href={AppRoutes.coverLetter.coverLetterSamples}
                 >
                   <p>{"Cover Letter Samples"}</p>
                 </NavLink>
@@ -163,7 +164,7 @@ const TopNav = ({
             <p>{"Cover Letter"}</p>
           </Link> */}
           <Link
-            href={"/blog"}
+            href={AppRoutes.blog.index}
             className="p-2 text-grey_icon dark:text-dark_secondary_text hover:bg-light_gray_widget dark:hover:bg-secondary_dark rounded-full"
           >
             <p>{"Blog"}</p>

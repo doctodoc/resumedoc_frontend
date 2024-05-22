@@ -7,6 +7,7 @@ const ResumeSummary = () => {
       <TextAreaCustom
         placeholder="Write a summary describing yourself and qualification"
         minRows={7}
+        name="resumeSummary"
       />
     </div>
   );

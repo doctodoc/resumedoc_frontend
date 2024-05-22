@@ -9,7 +9,7 @@ const CoverLetterSampleCard = () => {
         <section className="p-3 flex flex-col justify-between  gap-4">
           <div className="flex-1">
             <p className="text-ellipsis truncate font-medium">
-              Software Engineerin Manager
+              Software Engineering Manager
             </p>
             <p className="truncate text-ellipsis">
               {" "}
