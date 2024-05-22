@@ -20,6 +20,7 @@ const UsersQuotes = ({}: UserQuotesProps) => {
             comment={comment}
             avatar={avatar}
             role={role}
+            key={title}
           />
         ))}
       </section>

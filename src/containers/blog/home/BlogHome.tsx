@@ -33,11 +33,12 @@ const BlogHome = () => {
           <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-5">
             {Array(12)
               .fill(0)
-              .map(() => (
+              .map((blog, index) => (
                 <BlogCard
                   title={"How to optimize your resume"}
                   authorName="Mazi One"
                   readLength="12"
+                  key={index}
                 />
               ))}
           </div>
