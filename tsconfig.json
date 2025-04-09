@@ -28,6 +28,6 @@
     ".next/types/**/*.ts",
     "src/app/landingPage/page.js",
     "src/app/homePage.js"
-, "src/utils/helperData"  ],
+, "src/utils/helperData", "src/api/slices/theme"  ],
   "exclude": ["node_modules"]
 }

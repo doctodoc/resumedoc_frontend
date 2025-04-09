@@ -1,6 +1,36 @@
+@import url("https://fonts.cdnfonts.com/css/source-sans-pro");
+@import url("https://fonts.googleapis.com/css2?family=Proxima+Nova");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+/* @plugin "@tailwindcss/typography" */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.wysiwyg {
+  @apply prose max-w-none prose-foreground prose-headings:mt-0 prose-headings:mb-2 prose-p:mt-0 prose-p:mb-2 prose-ul:mt-0 prose-ul:mb-2 prose-li:mt-0 prose-li:mb-2 prose-ol:mt-0 prose-ol:mb-2 prose-img:mt-0 prose-img:mb-2 prose-hr:mt-0 prose-hr:mb-2 prose-p:leading-normal prose-li:leading-normal prose-a:break-all;
+}
+
+/* @layer base {
+  html {
+    font-family: "Source Sans Pro", "Proxima Nova", system-ui, sans-serif;
+  }
+} */
 
 :root {
   --scroll-thumb-color: #8d8d8d;
@@ -14,7 +44,26 @@
   }
   ::-webkit-scrollbar-track {
     /*border-radius: 10px;*/
-    background: #000000;
+    @apply bg-dark_scroll_track border-none;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark_scroll_thumb;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-color);
+  }
+}
+
+.dark {
+  ::-webkit-scrollbar-track {
+    @apply bg-dark_scroll_track border-none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark_scroll_thumb;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-color);
   }
 }
 
@@ -30,12 +79,6 @@
 
 input {
   outline: none;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
 
 /* Scroll bar custom styles */
@@ -82,4 +125,8 @@ input {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+}
+
+.country .highlight {
+  background: red !important;
 }

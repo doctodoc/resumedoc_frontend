@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindTypography from '@tailwindcss/typography'
 
 function pxToRem(value: number) {
   return `${value / 16}rem`;
@@ -19,7 +20,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-
+      fontFamily: {
+        sans: [
+          "'Source Sans Pro'",
+          "'Proxima Nova'",
+          "Poppins",
+          "system-ui",
+          "sans-serif",
+        ],
+      },
       fontSize: {
         default: "16px",
         reg_size: "16px",
@@ -41,6 +50,7 @@ const config: Config = {
         secondary_dark: "#2C2C2C",
         primary_light: "#D1FFE2",
         title_grey: "#515151",
+        banner_purple: "#764abc",
         power_purple: "#D60CE8",
         power_purple_light: "#FCDAFF",
         footer_bg: "#D9D9D9",
@@ -49,6 +59,8 @@ const config: Config = {
         dark_icon_circle: "#3D3B3B",
         light_gray_widget: "#F5F5F5",
         light_bg: "#FFFFFF",
+        active_tab_bg: "#6D6D6D",
+        dark_active_tab_bg: "#696868",
 
         // fonts
         copyright_color: "#515151",
@@ -62,6 +74,10 @@ const config: Config = {
         input_border_grey: "#D9D9D9",
         light_border_color: "#E2E1E1",
         dark_input_border_grey: "#1E1E1E",
+
+        // scroll
+        dark_scroll_thumb: "#868686",
+        dark_scroll_track: "#242424",
       },
       zIndex: {
         drop_down_menu: "600",
@@ -69,8 +85,32 @@ const config: Config = {
         side_bar: "300",
         floater: "200",
       },
+      typography: () => ({
+        foreground: {
+          css: {
+            "--tw-prose-body": "var(--color-foreground)",
+            "--tw-prose-headings": "var(--color-foreground)",
+            "--tw-prose-lead": "var(--color-foreground)",
+            "--tw-prose-links": "var(--color-foreground)",
+            "--tw-prose-bold": "var(--color-foreground)",
+            "--tw-prose-counters": "var(--color-foreground)",
+            "--tw-prose-bullets": "var(--color-foreground)",
+            "--tw-prose-hr": "var(--color-foreground)",
+            "--tw-prose-quotes": "var(--color-foreground)",
+            "--tw-prose-quote-borders": "var(--color-foreground)",
+            "--tw-prose-captions": "var(--color-foreground)",
+            "--tw-prose-code": "var(--color-foreground)",
+            "--tw-prose-pre-code": "var(--color-foreground)",
+            "--tw-prose-pre-bg": "var(--color-background)",
+            "--tw-prose-th-borders": "var(--color-foreground)",
+            "--tw-prose-td-borders": "var(--color-foreground)",
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [  
+    tailwindTypography
+],
 };
 export default config;

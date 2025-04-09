@@ -1,7 +1,8 @@
 "use client";
+import { AppStoreType, makeStore } from "@/api/redux/store";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { useRef } from "react";
-import { Provider } from "react-redux";
-import { makeStore, AppStoreType } from "../lib/store";
+import { Provider as ReduxProvider } from "react-redux";
 
 export default function StoreProvider({
   children,
@@ -14,5 +15,9 @@ export default function StoreProvider({
     storeRef.current = makeStore();
   }
 
-  return <Provider store={storeRef.current}>{children}</Provider>;
+  return (
+    <ReduxProvider store={storeRef.current}>
+      <TooltipProvider>{children}</TooltipProvider>
+    </ReduxProvider>
+  );
 }

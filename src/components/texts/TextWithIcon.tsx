@@ -1,8 +1,8 @@
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 // import { sizeConverterTW } from "../../utils/utilFunction";
 
 type TextWithIconPropType = {
-  text: string;
+  text: string | ReactNode;
   icon: any;
   sizeType?: "px" | "rem" | "em";
   width?: string | number;
@@ -16,7 +16,7 @@ type TextWithIconPropType = {
 };
 
 const TextWithIcon = ({
-  text,
+  text:Value,
   icon:Icon,
   width,
   height,
@@ -38,7 +38,8 @@ const TextWithIcon = ({
       } ${buttonClassName}`}
       onClick={onClick}
     >
-      <p className={`text-main_bg ${textClass} dark:text-dark_primary_text`}>{text}</p>
+      
+      {typeof Value === "string" ? <p className={`text-main_bg ${textClass} dark:text-dark_primary_text`}>{Value}</p> :  Value}
       <div className={`${iconClassName} dark:text-dark_primary_text`}>
         <Icon/>
       </div>

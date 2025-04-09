@@ -8,6 +8,9 @@ export { default as ResumeIcon } from "./ResumeIcon";
 export { default as TipsIcon } from "./TipsIcon";
 export { default as DarkModeIcon } from "./DarkModeIcon";
 export { default as LightModeIcon } from "./LightModeIcon";
+export { default as TwitterIcon } from "./TwitterIcon";
+export { default as MediumIcon } from "./MediumIcon";
+export {default as PlainCheckIcon} from "./PlainCheckIcon";
 
 
 

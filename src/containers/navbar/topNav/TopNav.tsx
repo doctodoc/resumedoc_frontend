@@ -15,6 +15,10 @@ import DropMenuContainer from "../../dropDowns/DropMenuContainer";
 import usePopUpMenu from "@/shared/hooks/usePopUpMenu";
 import NavLink from "@/components/buttons/NavLink";
 import { AppRoutes } from "@/routes/AppRoutes";
+import {
+  gradientGreenToPurpleText,
+  pryTextColor,
+} from "@/assets/css/tailwindcss";
 
 type Props = {
   handleAuthModal: (type: AuthRegType) => void;
@@ -33,7 +37,7 @@ const TopNav = ({
   openMenu,
   navRef,
 }: Props) => {
-  const [isAuth, setStateIsAuth] = useState(true);
+  const [isAuth, setStateIsAuth] = useState(false);
 
   const toggleThemeMode = () => {
     configTheme
@@ -72,7 +76,7 @@ const TopNav = ({
   return (
     <nav
       ref={navRef}
-      className="dark:text-dark_secondary_text px-4 sm:px-6 md:px-8 xl:px-10  flex justify-between border-light_border_color/30 backdrop-blur-md z-nav_bar shadow-md dark:shadow-none shadow-light_gray_bg/10 bg-light_pry_bg/30 sticky top-0 dark:bg-secondary_dark "
+      className="dark:text-dark_secondary_text px-4 sm:px-6 md:px-8 xl:px-10  flex justify-between border-light_border_color/30 backdrop-blur-md z-nav_bar bg-light_pry_bg/30   "
     >
       <section className="flex gap-4 items-center">
         <button
@@ -86,7 +90,10 @@ const TopNav = ({
           className="font-bold text-lg text-title_grey dark:text-dark_primary_text"
           href={"/"}
         >
-          Resume<span className="text-primary">Doc</span>
+          <p className={`text-primary ${gradientGreenToPurpleText}`}>
+            <span>Resume</span>
+            <span>Doc</span>
+          </p>
         </Link>
 
         <div className="hidden md:flex gap-4 items-center h-full text-sm xl:text-base">
@@ -99,23 +106,39 @@ const TopNav = ({
             dropDownRef={popUpResumeRef}
           >
             {
-              <div className={"flex flex-col gap-2"}>
+              <div className={"flex flex-col gap-6"}>
                 <NavLink
                   href={AppRoutes.resume.buildResume}
-                  className="flex gap-2 items-center"
+                  className="flex flex-col gap-1 items-start"
                   afterNav={closeResumeMenu}
                 >
-                  <p>{"New Resume"}</p>
-                  <Add sx={{ fontSize: 18 }} />
+                  <p className={`${pryTextColor}`}>{"Create Resume"}</p>
+                  <p className="font-light">
+                    View, edit, use resumes you have created
+                  </p>
+                  {/* <Add sx={{ fontSize: 18 }} /> */}
                 </NavLink>
-                <NavLink afterNav={closeResumeMenu} href={AppRoutes.resume.myResumes}>
-                  <p>{"My Resumes"}</p>
+
+                <NavLink
+                  afterNav={closeResumeMenu}
+                  href={AppRoutes.resume.myResumes}
+                  className="flex flex-col gap-1 items-start"
+                >
+                  <p className={`${pryTextColor}`}>{"My Resumes"}</p>
+                  <p className="font-light">
+                    View, edit, use resumes you have created
+                  </p>
                 </NavLink>
+
                 <NavLink
                   afterNav={closeResumeMenu}
                   href={AppRoutes.resume.resumeTemplates}
+                  className="flex flex-col gap-1 items-start"
                 >
-                  <p>{"Resume Templates"}</p>
+                  <p className={`${pryTextColor}`}>{"Resume Templates"}</p>
+                  <p className="font-light">
+                    Check out various resume template samples
+                  </p>
                 </NavLink>
               </div>
             }
@@ -133,22 +156,24 @@ const TopNav = ({
                 <NavLink
                   afterNav={closeCoverLetterMenu}
                   href={AppRoutes.coverLetter.createCoverLetter}
-                  className="flex gap-2 items-center"
+                  className="flex flex-col gap-1 items-start"
                 >
-                  <p>{"New Cover Letter"}</p>
-                  <Add sx={{ fontSize: 18 }} />
+                  <p className={`${pryTextColor}`}>{"New Cover Letter"}</p>
+                  {/* <Add sx={{ fontSize: 18 }} /> */}
                 </NavLink>
                 <NavLink
                   afterNav={closeCoverLetterMenu}
                   href={AppRoutes.coverLetter.myCoverLetters}
+                  className="flex flex-col gap-1 items-start"
                 >
-                  <p>{"My Cover Letters"}</p>
+                  <p className={`${pryTextColor}`}>{"My Cover Letters"}</p>
                 </NavLink>
                 <NavLink
                   afterNav={closeCoverLetterMenu}
                   href={AppRoutes.coverLetter.coverLetterSamples}
+                  className="flex flex-col gap-1 items-start"
                 >
-                  <p>{"Cover Letter Samples"}</p>
+                  <p className={`${pryTextColor}`}>{"Cover Letter Samples"}</p>
                 </NavLink>
               </div>
             }
@@ -168,6 +193,13 @@ const TopNav = ({
             className="p-2 text-grey_icon dark:text-dark_secondary_text hover:bg-light_gray_widget dark:hover:bg-secondary_dark rounded-full"
           >
             <p>{"Blog"}</p>
+          </Link>
+
+          <Link
+            href={AppRoutes.pricing.index}
+            className="p-2 text-grey_icon dark:text-dark_secondary_text hover:bg-light_gray_widget dark:hover:bg-secondary_dark rounded-full"
+          >
+            <p>{"Pricing"}</p>
           </Link>
         </div>
       </section>
@@ -251,7 +283,7 @@ const TopNav = ({
               )}
             </div>
           ) : (
-            <div className="flex gap-4 items-center text-sm py-3 md:py-4">
+            <div className="flex gap-4 items-center text-base py-3 md:py-4">
               <TextButton
                 onClick={() => {
                   handleAuthModal(AuthTypeEnum.signin);

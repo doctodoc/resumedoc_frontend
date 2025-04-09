@@ -4,7 +4,7 @@ import { ResumeFilterQueryType } from "@/shared/types/resumeTypes";
 import classNames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
 import { initialResumeQueryData } from "./FilterResume";
-import { transfromPageNumber } from "@/utils/transformOps";
+import { transfromPageNumber } from "@/utils/helperFunctions/transformOps";
 import {
   ResumeTemplateType,
   getResumeTemplates,

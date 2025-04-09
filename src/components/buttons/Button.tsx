@@ -1,16 +1,16 @@
 "use client";
 
 import { ContainerStylingPropsType } from "@/shared/types/componentTypes";
-import React, { ClassAttributes, HTMLAttributes, ReactElement } from "react";
+import React, { ClassAttributes, HTMLAttributes, ReactElement, ReactNode } from "react";
 
 export interface GenericButtonProps
   extends ContainerStylingPropsType,
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     ClassAttributes<HTMLButtonElement> {
-  children: any;
-  icon?: string;
+  children?: any;
+  icon?: ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   props?: any;
 }
 
@@ -20,10 +20,11 @@ const Button = ({
   px,
   py,
   onClick,
+  type,
   ...props
 }: GenericButtonProps) => {
   return (
-    <button className={`${className}`} onClick={onClick} {...props}>
+    <button {...props} className={`${className}`} onClick={onClick} type={type?type: 'button'} >
       {children}
     </button>
   );

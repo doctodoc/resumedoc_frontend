@@ -1,17 +1,28 @@
-"use client"
+"use client";
 
 import Link from "next/link";
-import React, { ReactElement } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import Button, { GenericButtonProps } from "./Button";
 
 interface Props extends GenericButtonProps {
-  icon?: string;
-};
+  isActive?: boolean;
+}
 
 // Button as plain text
-const TextButton = ({ children, icon, onClick, className }: Props) => {
+const TextButton = ({
+  children,
+  icon,
+  onClick,
+  className,
+  isActive,
+  ...props
+}: Props) => {
   return (
-    <Button className={`${className}`} onClick={onClick}>
+    <Button
+      {...props}
+      className={`${className} ${isActive ? "font-bold" : ""} flex gap-3`}
+      onClick={onClick}
+    >
       {children}
       {icon && icon}
     </Button>

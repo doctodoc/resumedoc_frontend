@@ -38,13 +38,12 @@ const GenericWarningModal = ({
           <p className="dark:text-dark_secondary_text">{warningMsg}</p>
         </section>
         <section className="w-full flex gap-4 md:gap-6 justify-center">
-          <OutlinedButton
+          <button
             onClick={close}
-            py={"1"}
-            className="border-grey_icon rounded-md"
+            className="border-grey_icon rounded-md font-medium"
           >
             Cancel
-          </OutlinedButton>
+          </button>
           <CurvedButton
             onClick={proceed}
             py={"1"}

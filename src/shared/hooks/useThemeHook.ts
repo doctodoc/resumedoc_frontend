@@ -1,21 +1,26 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ThemeTypeEnum } from "../enums/themeEnum";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/globalHooks";
+import { selectThemeMode, setThemeMode } from "@/api/slices/theme/slice";
 
-export type ThemeType = ThemeTypeEnum.dark | ThemeTypeEnum.light | string;
+export type ThemeType = string;
 
 const useThemeHook = () => {
-  const [getTheme, setTheme] = useState(
-    localStorage.getItem("theme") ?? ThemeTypeEnum.light
-  );
+  // const [theme, setTheme] = useState<string>(
+  //   localStorage.getItem("theme") ?? ThemeTypeEnum.light
+  // );
+
+  const theme = useAppSelector(selectThemeMode);
+  const dispatch = useAppDispatch();
 
   const configTheme = (theme: ThemeType) => {
-    setTheme(theme);
+    dispatch(setThemeMode(theme));
     localStorage.setItem("theme", theme);
   };
 
   const clearTheme = () => {
-    setTheme("");
+    setThemeMode("");
     localStorage.removeItem("theme");
   };
 
@@ -31,9 +36,9 @@ const useThemeHook = () => {
       document.documentElement.classList.remove(ThemeTypeEnum.dark);
       configTheme(ThemeTypeEnum.light);
     }
-  }, [getTheme]);
+  }, [theme]);
 
-  return { getTheme, setTheme, configTheme, clearTheme };
+  return { theme, configTheme, clearTheme };
 };
 
 export default useThemeHook;

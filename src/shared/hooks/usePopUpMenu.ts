@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const usePopUpMenu = () => {
   const popUpRef = useRef<HTMLDivElement | null>(null);
-  const [popUpState, setPopUpState] = useState(false);
+  const [popUpState, setPopUpState] = useState<boolean>(false);
 
   const closePopUp = () => {
     setPopUpState(false);

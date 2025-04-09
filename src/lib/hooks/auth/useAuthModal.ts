@@ -4,7 +4,7 @@ import {
   selectAuthRegType,
   setAuthRegType,
   setIsForgotPswd,
-} from "@/lib/features/auth/authSlice";
+} from "@/api/slices/auth/slice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/globalHooks";
 import { AuthTypeEnum } from "@/shared/enums/authEnums";
 import { AuthRegType } from "@/shared/types/authTypes";

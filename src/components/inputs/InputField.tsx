@@ -1,7 +1,7 @@
 "use client";
 
 import { InputFieldPropsType } from "@/shared/types/componentTypes";
-import { Close } from "@mui/icons-material";
+import { BorderColor, Close } from "@mui/icons-material";
 import classNames from "classnames";
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -18,12 +18,14 @@ const InputField = (
     isIdle,
     isOutlined,
     infoModalContent,
+    iconClass,
     // leftIcon: LeftIcon,
     icon: Icon,
     iconPosition,
     containerClass,
     autoFocus,
-
+    handleIconClick,
+    borderColor,
     ...props
   }: InputFieldPropsType,
   ref?: React.LegacyRef<HTMLInputElement> | undefined
@@ -31,7 +33,7 @@ const InputField = (
   const [inputVal, setInputVal] = useState(value);
 
   const clearInput = () => {
-    setInputVal("");
+    setInputVal(""); 
   };
 
   useEffect(() => {
@@ -39,52 +41,65 @@ const InputField = (
   }, [value]);
 
   return (
-    <div className={` flex flex-col gap-2 md:gap-3 ${containerClass}`}>
+    <div className={`w-full flex flex-col ${containerClass}`}>
       <header>
         {title && (
-          <h2 className="font-medium text-base dark:text-dark_primary_text dark:font-normal">
+          <h2 className="font-medium mb-2 md:mb-3 text-base dark:text-dark_primary_text dark:font-normal">
             {title}
           </h2>
         )}
       </header>
-      <section className="relative  flex flex-col gap-2 ">
-        <div
-          className={classNames(
-            `relative flex w-full justify-between items-center rounded-md ${
-              iconPosition === "right" ? "flex-row-reverse" : ""
-            }
-        ${className} dark:bg-transparent bg-white w-full py-2 dark:placeholder:text-input_border_grey/40 placeholder:text-base
+      <div
+        className={classNames(
+          `relative flex w-full gap-2 justify-between items-center rounded-md ${
+            iconPosition === "right" ? "flex-row-reverse" : ""
+          }
+        ${className} dark:bg-transparent bg-white w-full px-2 dark:placeholder:text-input_border_grey/40 placeholder:text-base
+          ${borderColor ? borderColor : ""}
         `,
-            {
-              "border-[1.3px] border-solid border-input_border_grey dark:border-input_border_grey/60 ":
-                isOutlined,
-            }
-          )}
-        >
-          {Icon && <Icon />}
-          <input
-            {...props}
-            name={id}
-            id={id}
-            className={classNames(
-              ` bg-transparent px-2 flex-1 dark:placeholder:text-gray-500/[20] placeholder:text-base rounded-md`
-            )}
-            type={`${type ? type : "text"}`}
-            placeholder={placeholder}
-            onChange={isIdle ? () => {} : handleChange}
-            value={inputVal}
-            disabled={isIdle}
-            autoFocus={autoFocus}
-            ref={ref}
-          />
+          {
+            "border-[1.3px] border-solid border-input_border_grey dark:border-input_border_grey/60 ":
+              isOutlined && !borderColor,
+          }
+        )}
+      >
+        {handleIconClick ? (
           <button
-            onClick={clearInput}
-            className="text-grey_icon/60 dark:text-dark_primary_text/60"
+            className={`text-grey_icon/60 dark:text-dark_primary_text/60 ${iconClass}`}
+            onClick={handleIconClick}
           >
-            <Close />
+            {Icon && <Icon />}
           </button>
-        </div>
-      </section>
+        ) : (
+          <div
+            className={`text-grey_icon/60 dark:text-dark_primary_text/60 ${iconClass}`}
+          >
+            {Icon && <Icon />}
+          </div>
+        )}
+
+        <input
+          {...props}
+          name={id}
+          id={id}
+          className={classNames(
+            `bg-transparent flex-1 py-2 dark:placeholder:text-input_border_grey/55 font-light placeholder:text-base dark:text-dark_primary_text`
+          )}
+          type={`${type ? type : "text"}`}
+          placeholder={placeholder}
+          onChange={isIdle ? () => {} : handleChange}
+          value={inputVal}
+          disabled={isIdle}
+          autoFocus={autoFocus}
+          ref={ref}
+        />
+        <button
+          onClick={clearInput}
+          className="text-grey_icon/60 dark:text-dark_primary_text/60 "
+        >
+          <Close sx={{ fontSize: 18 }} />
+        </button>
+      </div>
     </div>
   );
 };

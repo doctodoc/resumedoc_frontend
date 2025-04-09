@@ -9,11 +9,13 @@ import UsersQuotes from "./userQuotes/UsersQuotes";
 import BottomCTA from "./BottomCTA";
 import { universalPaddingY } from "@/assets/css/tailwindcss";
 import classNames from "classnames";
+import DashboardLayout from "../layouts/dashboardLayout/DashboardLayout";
+import DashboardPage from "@/pages/dashboard/DashboardPage";
 
 const LandingPage = () => {
   return (
-    <div className={classNames(`${universalPaddingY}`)}>
-      <header>
+    <div className={classNames(` pt-0`)}>
+      {/* <header>
         <Banner />
         <section></section>
       </header>
@@ -28,7 +30,10 @@ const LandingPage = () => {
         <Features />
         <UsersQuotes />
         <BottomCTA />
-      </main>
+      </main> */}
+      <DashboardLayout>
+        <DashboardPage />
+      </DashboardLayout>
     </div>
   );
 };

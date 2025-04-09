@@ -12,9 +12,24 @@ export const AppRoutes = {
     coverLetterSamples: "/cover-letter-samples"
   },
   dashboard: {
-    index:""
+    index:"/dashboard",
+    resume: "/dashboard/resume",
+    coverLetter: "/dashboard/cover-letter",
+    resignationLetter: "/dashboard/resignation-letter",
+    academicCv: "/dashboard/academic-cv",
+    statementOfPurpose: "/dashboard/statement-of-purpose"
+
+  },
+  account: {
+    index: "/account"
+  },
+  explore: {
+    index: "explore"
   },
   blog: {
     index: "/blog"
+  },
+  pricing: {
+    index: "/pricing"
   }
 };

@@ -9,17 +9,17 @@ import {
   
   export const iconFeaturesData: Array<IconFeaturesDataType> = [
     {
+      title: "AI Powered Resume builder",
+      description: "Build powerful resumes with the right keywords on the go.",
+      icon: CustomizableIcon,
+    },
+    {
       title: "Resume Specialists",
       description:
         "Our team has dedicated  Resume specialists with years of experience in every industry ranging from Technology, Finance to Law. ",
       icon: SpecialistIcon,
     },
-    {
-      title: "Free Resume and Cover Letter Samples",
-      description:
-        "We give you access to free Resume cover letter samples and templates you can build with.",
-      icon: ResumeIcon,
-    },
+    
     {
       title: "Customizable Resumes",
       description: "Templates are customizable to fit your style and preference.",

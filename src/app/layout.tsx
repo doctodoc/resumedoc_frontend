@@ -1,10 +1,13 @@
+"use client";
 
-// import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/globals.css";
 import StoreProvider from "./StoreProvider";
 import MainLayout from "@/containers/layouts/MainLayout";
-
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { AuthProvider } from "@/containers/auth/AuthContext";
+import DialogProvider from "@/providers/DialogProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +21,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
- 
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
-        <StoreProvider>
-          <MainLayout>{children}</MainLayout>
-        </StoreProvider>
+    <html lang="en" className="font-sans">
+      <body
+        // className={`${inter.className}`}
+        className=""
+      >
+        <AuthProvider>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <StoreProvider>
+              <DialogProvider>
+                <MainLayout>{children}</MainLayout>
+                <div id="resume-download-space"></div>
+              </DialogProvider>
+            </StoreProvider>
+          </LocalizationProvider>
+        </AuthProvider>
       </body>
     </html>
   );

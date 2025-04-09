@@ -33,6 +33,7 @@ const CreateCoverLetter = () => {
 
           <section className="flex items-end gap-3">
             <TextAreaCustom
+              id="cover_letter_input"
               value={""}
               placeholder="Write a few things about you or your experience, we will generate the rest..."
               minRows={5}

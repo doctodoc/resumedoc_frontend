@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { pryBgColor } from "@/assets/css/tailwindcss";
+import { pryBgColor, pryTextColor } from "@/assets/css/tailwindcss";
+import { CloseIcon } from "@/assets/svg";
 
 export interface ModalCompProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ export interface ModalCompProps {
   children?: JSX.Element;
   dialogClassName?: string;
   shouldPreventUserFromClosing?: boolean; // specifies if user should not be able to close the modal.
+  
 }
 
 export const Modal = ({
@@ -16,6 +18,7 @@ export const Modal = ({
   dialogClassName,
   shouldPreventUserFromClosing,
   close,
+ 
 }: ModalCompProps) => {
   const handleClose = shouldPreventUserFromClosing
     ? () => {
@@ -55,6 +58,7 @@ export const Modal = ({
               <Dialog.Panel
                 className={`relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all min-w-[100px] max-w-[99%] min-h-fit max-h-[90vh] dark:text-dark_primary_text ${dialogClassName} ${pryBgColor}`}
               >
+                
                 {children}
               </Dialog.Panel>
             </Transition.Child>

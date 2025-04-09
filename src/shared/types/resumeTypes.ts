@@ -1,3 +1,5 @@
+import { ResumeFormCompType } from "./componentTypes";
+
 export interface ResumeFilterQueryType {
   resumeCategory: {
     type: string;
@@ -6,3 +8,15 @@ export interface ResumeFilterQueryType {
   pageSize: number | null;
   atsFriendly: boolean | null;
 } 
+
+export interface SavedResume{
+  id?: string;
+  resumeType?: 'job' | 'school';
+  templateSelected?: string;
+  companyName?: string,
+  schoolName?: string,
+  jobTitle?: string,
+  dateUpdated?: string;
+  professionalTitle?: string;
+
+}

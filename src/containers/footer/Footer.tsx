@@ -11,12 +11,10 @@ import NewsLetterIcon from "@/assets/svg/NewsLetterIcon";
 const Footer = () => {
   const [newsLetterEmail, setNewsLetterEmail] = useState<string>("");
 
-  const handleNewsLetterEmail = ()=>{
-    
-  }
+  const handleNewsLetterEmail = () => {};
   return (
     <div
-      className={`bg-footer_bg dark:bg-secondary_dark  ${universalPaddingX} pt-3 md:pt-10  pb-4`}
+      className={`bg-footer_bg dark:bg-secondary_dark  ${universalPaddingX} pt-3 md:pt-10  pb-4 bottom-0 mt-20`}
     >
       <main className="flex flex-col sm:flex-row gap-6">
         <section className="sm:w-[40%]">

@@ -1,11 +1,11 @@
 import { Disclosure } from "@headlessui/react";
-import React, { Children, ElementType, ReactElement } from "react";
+import React, { Children, ElementType, ReactElement, ReactNode } from "react";
 import TextWithIcon from "../texts/TextWithIcon";
 import { KeyboardArrowDown } from "@mui/icons-material";
 
 type DisclosureProps = {
   defaultOpen?: boolean;
-  title: string;
+  title: string | ReactNode;
   children?: string | ReactElement;
   className?: string;
   titleClassName?: string;

@@ -2,69 +2,105 @@ import CurvedButton from "@/components/buttons/CurvedButton";
 import { Add } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import React from "react";
-import ResumeClip from "../../resume/selectResume/ResumeClip";
+import OutlinedButton from "@/components/buttons/OutlinedButton";
+// import CoverLetterCard from "../coverLetter/CoverLetterCard";
+import {
+  greyBorder,
+  lightCardBg,
+  secTextColor,
+} from "@/assets/css/tailwindcss";
+import CoverLetterSampleCard from "@/containers/coverLetter/coverLetterSamples/CoverLetterSampleCard";
+import ResumeCard from "./ResumeCard";
+import { SavedResume } from "@/shared/types/resumeTypes";
+import { format } from "date-fns";
+import AddDocumentIcon from "@/assets/svg/AddDocumentIcon";
+import Layout from "../Layout";
+import CreateCard from "@/components/card/CreateCard";
 
 type Props = {
   resumeList: any;
+  createNewResume: () => void;
+  triggerEdit?: (id: string) => void;
+  triggerView?: (id: string) => void;
+  triggerDownload?: (id: string) => void;
+  triggerDelete?: (id: string) => void;
 };
 
-const CreatedResumes = ({ resumeList }: Props) => {
+const CreatedResumes = ({
+  resumeList,
+  createNewResume,
+  triggerEdit,
+  triggerView,
+  triggerDownload,
+  triggerDelete,
+}: Props) => {
   const router = useRouter();
-
-  const navToBuildResume = () => {
-    router.push("/build-resume", { scroll: false });
-  };
+  const savedResumes: Array<SavedResume> = [
+    {
+      companyName: "Zeus inc.",
+      jobTitle: "Software Engineering",
+      resumeType: "job",
+      templateSelected: "default",
+      id: "new_resume",
+      dateUpdated: format(new Date(), "yyyy-MM-dd"),
+    },
+  ];
 
   return (
-    <div className="flex flex-col gap-4 w-fit max-w-full bg-inherit ">
-      <main className="flex flex-col gap-4 w-full bg-inherit">
-        <h1 className="font-medium">Created Resumes & Saved Entries</h1>
-
-        <div className="flex h-fit bg-inherit ">
-          <section className="relative flex gap-3 overflow-x-auto w-fit h-fit">
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            <ResumeClip className="min-w-44 max-w-44" />
-            {/* glass pane
-            <div
-              className={`w-20 h-full bg-gradient-to-r from-transparent to-slate-900 absolute right-0 top-0 z-[3]`}
-            >
-            </div> */}
-          </section>
-
-          <section
-            className={"flex-shrink flex relative ml-10 z-[2] bg-inherit"}
-          >
-            <CurvedButton
-              className="flex flex-col gap-3 justify-center w-fit aspect-[1/2] ml-0 p-3 flex-1 items-center bg-light_gray_widget dark:bg-secondary_dark text-primary"
-              onClick={navToBuildResume}
-            >
-              <p className="font-medium text-[18px]">New Resume</p>
-              <Add className="w-full" sx={{ fontSize: 40 }} />
-            </CurvedButton>
-          </section>
+    <Layout title="My Resumes">
+      <OutlinedButton
+        className={`${lightCardBg} flex flex-col gap-4 justify-center items-center border-dashed text-primary ${lightCardBg} border-dashed ${greyBorder} border-[2px] min-h-[300px] text-lg`}
+        onClick={createNewResume}
+      >
+        <div className="text-primary w-7 h-7  md:w-10 md:h-10">
+          <AddDocumentIcon />
         </div>
-      </main>
+        <p className="font-semibold">Create Resume</p>
+        {/* <Add sx={{ fontSize: 50 }} /> */}
+      </OutlinedButton>
 
-      <section className="w-full flex justify-center items-center">
-        <CurvedButton className="bg-primary text-white" py={3}>
-          View All
-        </CurvedButton>
-      </section>
-    </div>
+      {savedResumes && savedResumes.length
+        ? savedResumes.map((savedResume) => (
+            <CreateCard
+              key={savedResume.id}
+              subTitle={savedResume?.jobTitle}
+              title={savedResume?.companyName}
+              dateUpdated={savedResume?.dateUpdated}
+              tags={["work resume"]}
+              id={savedResume.id}
+              triggerEdit={triggerEdit}
+              triggerView={triggerView}
+              triggerDownload={triggerDownload}
+              triggerDelete={triggerDelete}
+            />
+          ))
+        : [
+            <OutlinedButton
+              className={` border-solid h-full w- ${greyBorder}`}
+              onClick={createNewResume}
+            >
+              <></>
+              {/* <p>Create Resume</p> */}
+              {/* <Add sx={{ fontSize: 50 }} /> */}
+            </OutlinedButton>,
+            <OutlinedButton
+              className={` border-solid h-full w- ${greyBorder}`}
+              onClick={createNewResume}
+            >
+              <></>
+              {/* <p>Create Resume</p> */}
+              {/* <Add sx={{ fontSize: 50 }} /> */}
+            </OutlinedButton>,
+            <OutlinedButton
+              className={` border-solid h-full w- ${greyBorder}`}
+              onClick={createNewResume}
+            >
+              <></>
+              {/* <p>Create Resume</p> */}
+              {/* <Add sx={{ fontSize: 50 }} /> */}
+            </OutlinedButton>,
+          ]}
+    </Layout>
   );
 };
 

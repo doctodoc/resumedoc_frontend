@@ -9,7 +9,6 @@ interface Props extends ModalCompProps {}
 const SaveResumeBioModal = ({ isOpen, close }: Props) => {
   const [bioName, setBioName] = useState("resume_bio_name");
   const handleFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("focused");
     e.target.select();
   };
 

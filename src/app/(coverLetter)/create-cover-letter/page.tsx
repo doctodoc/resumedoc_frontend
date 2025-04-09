@@ -1,3 +1,5 @@
+'use client'
+
 import { universalPaddingY } from "@/assets/css/tailwindcss";
 import CreateCoverLetter from "@/containers/coverLetter/createCoverLetter/CreateCoverLetter";
 import React from "react";

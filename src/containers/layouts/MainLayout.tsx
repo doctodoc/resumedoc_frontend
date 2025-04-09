@@ -2,16 +2,16 @@
 
 import React, { useRef, useState } from "react";
 import TopNav from "../navbar/topNav/TopNav";
-import StoreProvider from "@/app/StoreProvider";
 import Footer from "../footer/Footer";
 import { AuthRegType } from "@/shared/types/authTypes";
 import useAuthModal from "@/lib/hooks/auth/useAuthModal";
-import AuthModalContainer from "../auth/modals/AuthModalContainer";
 import AuthModal from "../auth/modals/AuthModal";
 import useThemeHook from "@/shared/hooks/useThemeHook";
 import { navLinks } from "@/data/linksData/navLinksData";
 import DropDownMenu from "../navbar/DropDownNav";
-import useGetHeight from "@/lib/hooks/elements/useGetHeight";
+import useGetHeight, {
+  CompHeightContext,
+} from "@/lib/hooks/elements/useGetHeight";
 
 const MainLayout = ({
   children,
@@ -19,7 +19,7 @@ const MainLayout = ({
   children: React.ReactNode;
 }>) => {
   const { openAuthModal, closeAuthModal, isAuthModalOpen } = useAuthModal();
-  const { getTheme: themeMode, configTheme, clearTheme } = useThemeHook();
+  const { theme: themeMode, configTheme, clearTheme } = useThemeHook();
 
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const { height: topNavHeight, eleRef: topNavRef } = useGetHeight();
@@ -40,11 +40,11 @@ const MainLayout = ({
   };
 
   return (
-    <div className="flex flex-col dark:bg-primary_dark min-h-screen">
+    <div className="flex flex-col dark:bg-primary_dark h-full ">
       {/* MODALS */}
       <AuthModal isOpen={isAuthModalOpen} close={closeAuthModal} />
 
-      <TopNav
+      {/* <TopNav
         handleAuthModal={handleAuth}
         themeMode={themeMode}
         configTheme={configTheme}
@@ -59,14 +59,17 @@ const MainLayout = ({
           handleClose={closeDropDownMenu}
           isOpen={isDropDownOpen}
         />
-      )}
-      <div
-        className={`flex flex-col relative mb-20`}
-        style={{ minHeight: `calc(90vh - ${topNavHeight}px)` }}
-      >
-        {children}
-      </div>
-      <Footer />
+      )} */}
+
+      <CompHeightContext.Provider value={{ topNavHeight }}>
+        <div
+          className={`flex flex-col sticky h-full w-full`}
+          // style={{ minHeight: `calc(90vh - ${topNavHeight}px)` }}
+        >
+          {children}
+        </div>
+      </CompHeightContext.Provider>
+      {/* <Footer /> */}
     </div>
   );
 };

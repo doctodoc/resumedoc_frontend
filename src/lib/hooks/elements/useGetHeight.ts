@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createContext } from 'react';
+
+export const CompHeightContext = createContext<any>(null);
 
 type UseGetHeightType = {
   ref: any;
@@ -12,7 +15,6 @@ const useGetHeight = () => {
   const [top, setTop] = useState(0);
 
   useEffect(() => {
-    console.log("first");
     if (eleRef?.current) {
       setHeight(eleRef?.current.clientHeight);
       setBottom(eleRef?.current.getBoundingClientRect().bottom);
